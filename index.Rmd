@@ -11,8 +11,7 @@ links:
   - label: Email
     url: "csimms@ucsb.edu"
 site: distill::distill_website
-  output:
-  postcards::jolla
+output: postcards::jolla
 ---
  
 I am an Accountant. ;)
