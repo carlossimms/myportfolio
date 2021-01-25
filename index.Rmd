@@ -1,0 +1,18 @@
+---
+title: "Carlos Simms"
+image: "Simms_Professional_Photo_2.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/carlossimms15/"
+  - label: Facebook
+    url: "https://www.facebook.com/carlossimms15"
+  - label: GitHub
+    url: "https://github.com/carlossimms"
+  - label: Email
+    url: "csimms@ucsb.edu"
+site: distill::distill_website
+  output:
+  postcards::jolla
+---
+ 
+I am an Accountant. ;)
