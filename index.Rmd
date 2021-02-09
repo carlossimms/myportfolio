@@ -1,17 +1,25 @@
 ---
 title: "Carlos Simms"
 image: "Simms_Professional_Photo_2.jpg"
+color1: "#5A59A3"
+color2: "#C66060"
+angle: 160
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/carlossimms15/"
-  - label: Facebook
-    url: "https://www.facebook.com/carlossimms15"
+  - label: Handshake
+    url: "https://ucsb.joinhandshake.com/users/24142606"
   - label: GitHub
     url: "https://github.com/carlossimms"
   - label: Email
     url: "csimms@ucsb.edu"
 site: distill::distill_website
-output: postcards::jolla
+output: postcards::trestles
 ---
- 
-I am an Accountant. ;)
+
+
+Carlos Simms is a Mexican-American, first-generation alumnus from the University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change Science. Carlos is now pursuing a Master of Science in Environmental Science and Management at the University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist and/or an energy and climate specialist for the growing renewable energy industry. For more information, select one of his social profile links on the bottom left of this page.
+
+
+
+

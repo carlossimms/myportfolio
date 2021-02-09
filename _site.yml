@@ -1,5 +1,5 @@
 name: "."
-title: "Carlos Simms' Website Template"
+title: "Carlos Simms' Personal Website"
 description: |
   mfeo
 output_dir: "docs"
@@ -8,7 +8,7 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About"
+    - text: "About Me"
       href: about.html
 output: distill::distill_article
 
