@@ -13,6 +13,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri');
 @import url('https://fonts.googleapis.com/css2?family=Bitter');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 
 html {
@@ -32,7 +33,7 @@ html {
   --heading-font:    "Amiri", serif;
   --mono-font:       "DM Mono", monospace;
   --body-font:       "Bitter", sans-serif;
-  --navbar-font:     "Amiri", serif;  /* websites + blogs only */
+  --navbar-font:     "Fredoka One", serif;  /* websites + blogs only */
 }
 
 /*-- ARTICLE METADATA --*/
@@ -61,11 +62,11 @@ d-appendix {
 /* These properties only apply to Distill sites and blogs  */
 
 .distill-site-header {
-  --title-size:       18px;
-  --text-color:       #ff414b;
-  --text-size:        15px;
-  --hover-color:      #dd424c;
-  --bkgd-color:       #ffd8db;
+  --title-size:       20px;
+  --text-color:       #FFF7FB;
+  --text-size:        20px;
+  --hover-color:      #FED976;
+  --bkgd-color:       #045A8D;
 }
 
 .distill-site-footer {

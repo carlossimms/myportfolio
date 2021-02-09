@@ -1,0 +1,30 @@
+---
+title: " "
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# ADD TITLE
+
+*PLANS FOR THIS PAGE: to make the below project examples into individual tabs.*
+
+### Example 1
+
+*This example might be .... TBD*
+
+### Example 2
+
+*This example might be .... TBD*
+
+### Example 3
+
+*This example might be .... TBD*
+
+### Example 4
+
+*This example might be a reference/link to my group's shiny app.*
+
+

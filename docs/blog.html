@@ -84,26 +84,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>MyPROFILE: Professional Background</title>
+  <title>MyPROFILE:  </title>
   
   
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="MyPROFILE: Professional Background"/>
+  <meta property="og:title" content="MyPROFILE:  "/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="MyPROFILE"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="MyPROFILE: Professional Background"/>
+  <meta property="twitter:title" content="MyPROFILE:  "/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Professional Background"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["posts"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2355,12 +2355,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body>
+<body class="layout-listing">
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Professional Background","authors":[]}
+{"title":" ","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2382,9 +2382,150 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
+<!--radix_placeholder_article_listing-->
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).load(function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
+
+<div class="posts-container posts-apply-limit l-page">
+<div class="posts-list">
+<h1 class="posts-list-caption" data-caption=" "> </h1>
+</div>
+<div class="posts-more">
+<a href="#">More articles &raquo;</a>
+</div>
+</div>
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Professional Background</h1>
+<h1>blog.utf8</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2392,44 +2533,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<p><img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="550" height="450"/> <em>(Official Image. Carlos Simms and other lobbyists with Idaho Senator James Risch. Russell Senate Office, Capitol Hill, Washington, D.C. February 4, 2020)</em></p>
-<h2 id="skills">Skills</h2>
-<ul>
-<li><strong>Computer:</strong> R, Microsoft (Word, PowerPoint, Excel)</li>
-<li><strong>Technical:</strong> Data Management, Research, Technical Writing</li>
-<li><strong>Professional:</strong> CPR</li>
-</ul>
-<h2 id="courses-taken">Courses Taken</h2>
-<ul>
-<li>EDCI 404: McNair Graduate School Prep</li>
-<li>EDCI 504: McNair Advanced Research Methods</li>
-<li>NRS 499: Renewable Energy Design and Economics</li>
-<li>ESM 201: Ecological Principals</li>
-<li>ESM 202: Environmental Biogeochemistry</li>
-<li>ESM 203: Earth System Science</li>
-<li>ESM 206: Data Analysis and Statistics</li>
-<li>ESM 210: Business and the Environment</li>
-<li>ESM 241: Environmental Politics and Policy</li>
-<li>ESM 244: Advanced Data Analysis</li>
-<li>ESM 256A: Eco-Entrepreneurship</li>
-</ul>
-<h2 id="research">Research</h2>
-<p><strong>The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis</strong> - Carlos Simms 2020</p>
-<p>A capstone report on the salience of building-applied photovoltaic (BAPV) systems, via an analysis of four distinct levels of significance: the university, state, national, and international levels. As global greenhouse gas (GHG) emissions continue to rise and contribute to anthropogenic climate change, a clear global commons issue is outlined: a need for a global transition to renewable energy to mitigate energy-sector GHG emissions. A focus on solar technology, specifically that of BAPV systems, as a first step in transitioning to a renewable energy paradigm, is provided. BAPV systems are the cheapest solar energy variant and are integrable with existing infrastructure on a mass-scale unlike that of any other renewable energy technology. A cost-benefit analysis to solar energy use concluded that the free-market and governments both play integral roles in propagating the market viability of solar energy. In addition, practical, economic, sociocultural, political, and environmental elements of solar technology use are outlined, boasting of substantial promise and warning of salient issues looking ahead into the future.</p>
-<p><strong>The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement</strong> - Carlos Simms 2020</p>
-<p>An issue brief on the African Union’s ability to adapt to, and rebound from, perturbations caused by climate change. In Africa, refugees are fleeing from extreme poverty, food scarcity, poor governmental institutions, war, religious and political persecution, and abysmal environmental conditions that will further be worsened by climate change. In consequence, mass migration routes are commonplace across Africa, constituting an already salient population displacement issue. In association, there is a growing concern over the potential for a massive climate refugee crisis as climate change is perturbing already deficient ecosystem services and policial institutions. A brief assessment of the African Union’s role in climate adaptability and resiliency, resulted in questionable authority and passive policy rhetoric regarding the union’s efficacy in provisioning for such a crisis.</p>
-<h2 id="lifetime-awards">Lifetime Awards</h2>
-<ul>
-<li>Environmental Science and Management Graduate Scholarship ($69,804)</li>
-<li>Ronald E. McNair Post-Baccalaureate Achievement Research Grant ($3,500)</li>
-<li>DeVlieg Foundation Research Grant ($3,000)</li>
-<li>Ramseyer/Daly General Scholarship ($779)</li>
-<li>Honors Scholars Endowment ($200)</li>
-<li>Monnett, Wallace and Dorothy Scholarship ($1,000)</li>
-<li>Henry, Mary Lillian Scholarship ($494)</li>
-<li>Phi Eta Sigma Honors Scholarship ($100)</li>
-<li>Academic Achievement Level Scholarship ($1,727)</li>
-</ul>
+<h1 id="add-title">ADD TITLE</h1>
+<p><em>PLANS FOR THIS PAGE: to make the below project examples into individual tabs.</em></p>
+<h3 id="example-1">Example 1</h3>
+<p><em>This example might be …. TBD</em></p>
+<h3 id="example-2">Example 2</h3>
+<p><em>This example might be …. TBD</em></p>
+<h3 id="example-3">Example 3</h3>
+<p><em>This example might be …. TBD</em></p>
+<h3 id="example-4">Example 4</h3>
+<p><em>This example might be a reference/link to my group’s shiny app.</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
