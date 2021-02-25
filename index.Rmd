@@ -5,20 +5,28 @@ color1: "#5A59A3"
 color2: "#C66060"
 angle: 160
 links:
-  - label: LinkedIn
-    url: "https://www.linkedin.com/in/carlossimms15/"
-  - label: Handshake
-    url: "https://ucsb.joinhandshake.com/users/24142606"
+  - label: BrenConnect
+    url: "https://brenconnect.force.com/s/profile/0053s000003kX1S"
   - label: GitHub
     url: "https://github.com/carlossimms"
+  - label: Handshake
+    url: "https://ucsb.joinhandshake.com/users/24142606"
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/carlossimms15/"
   - label: Email
     url: "csimms@ucsb.edu"
 site: distill::distill_website
 output: postcards::trestles
 ---
 
-<img style="float: left; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="600" height="350"/> *(Simms, C. 2020. "Campus Beach". Isla Vista, CA.)*
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+<img style="float: left; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="700" height="300"/> *(Simms, C. 2020. "Campus Beach". Isla Vista, CA.)*
 
 ### Biography
 
-Carlos Simms is a Mexican-American, first-generation alumnus from the University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change Science. Carlos is now pursuing a Master of Science in Environmental Science and Management at the University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist and/or an energy and climate specialist for the growing renewable energy industry.
+Carlos Simms is a Mexican-American, first-generation alumnus from the University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at the University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist and/or an energy and climate specialist for corporate America or for the growing renewable energy industry.

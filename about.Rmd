@@ -3,20 +3,18 @@ title: "Professional Background"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE)
 ```
 
-<img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="550" height="450"/> *(Official Image. Carlos Simms and other lobbyists with Idaho Senator James Risch. Russell Senate Office, Capitol Hill, Washington, D.C. February 4, 2020)*
+<img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="400" height="540"/> *(Official Image. Carlos Simms and other lobbyists with Idaho Senator James Risch. Russell Senate Office, Capitol Hill, Washington, D.C. February 4, 2020)*
 
-## Skills
-
-- **Computer:** R, Microsoft (Word, PowerPoint, Excel)
-- **Technical:** Data Management, Research, Technical Writing
-- **Professional:** CPR
+## [Resume](Simms_Resume.pdf)
 
 ## Courses Taken
 
-- EDCI 404: McNair Graduate School Prep
+- EDCI 404: McNair Graduate Preparatory
 - EDCI 504: McNair Advanced Research Methods
 - NRS 499: Renewable Energy Design and Economics
 - ESM 201: Ecological Principals
@@ -28,15 +26,11 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 - ESM 244: Advanced Data Analysis
 - ESM 256A: Eco-Entrepreneurship
 
-## Research
+## Writing Samples
 
-**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis** - Carlos Simms 2020
+- [**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis**](https://s3.amazonaws.com/handshake.production/documents/documents/020/186/655/original/Simms_UofI_Undergraduate_Thesis.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAILGI2B7PIOQKG5EA%2F20210225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210225T075227Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=4257aa2b1be0d2a9582bc4f4cda8761083c29caea069bdf1d078f601150117bd) - Simms, C. 2020
 
-A capstone report on the salience of building-applied photovoltaic (BAPV) systems, via an analysis of four distinct levels of significance: the university, state, national, and international levels. As global greenhouse gas (GHG) emissions continue to rise and contribute to anthropogenic climate change, a clear global commons issue is outlined: a need for a global transition to renewable energy to mitigate energy-sector GHG emissions. A focus on solar technology, specifically that of BAPV systems, as a first step in transitioning to a renewable energy paradigm, is provided. BAPV systems are the cheapest solar energy variant and are integrable with existing infrastructure on a mass-scale unlike that of any other renewable energy technology. A cost-benefit analysis to solar energy use concluded that the free-market and governments both play integral roles in propagating the market viability of solar energy. In addition, practical, economic, sociocultural, political, and environmental elements of solar technology use are outlined, boasting of substantial promise and warning of salient issues looking ahead into the future. 
-
-**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement** - Carlos Simms 2020
-
-An issue brief on the African Union's ability to adapt to, and rebound from, perturbations caused by climate change. In Africa, refugees are fleeing from extreme poverty, food scarcity, poor governmental institutions, war, religious and political persecution, and abysmal environmental conditions that will further be worsened by climate change. In consequence, mass migration routes are commonplace across Africa, constituting an already salient population displacement issue. In association, there is a growing concern over the potential for a massive climate refugee crisis as climate change is perturbing already deficient ecosystem services and policial institutions. A brief assessment of the African Union's role in climate adaptability and resiliency, resulted in questionable authority and passive policy rhetoric regarding the union's efficacy in provisioning for such a crisis.
+- [**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement**](https://s3.amazonaws.com/handshake.production/documents/documents/020/186/689/original/Simms_UofI_Undergraduate_Issue_Brief.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAILGI2B7PIOQKG5EA%2F20210225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210225T075304Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=f6917051c123d076e6306251fdb1757fa2c45f1720b79349d0c960e430751bfd) - Simms, C. 2020
 
 ## Lifetime Awards
 

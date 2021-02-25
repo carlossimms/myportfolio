@@ -1,12 +1,12 @@
 name: "."
-title: "MyPROFILE"
+title: "MyPORTFOLIO"
 description: |
   mfeo
 output_dir: "docs"
 theme: theme.css
 navbar:
   right:
-    - text: "Home"
+    - text: "Biography"
       href: index.html
     - text: "Professional Background"
       href: about.html
