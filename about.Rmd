@@ -1,18 +1,20 @@
 ---
-title: "Professional Background"
+title: "Resume and Curriculum Vitae"
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      warning = FALSE, 
-                      message = FALSE)
-```
 
 <img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="400" height="540"/> *(Official Image. Carlos Simms and other lobbyists with Idaho Senator James Risch. Russell Senate Office, Capitol Hill, Washington, D.C. February 4, 2020)*
 
 ## [Resume](Simms_Resume.pdf)
 
-## Courses Taken
+## [Curriculum Vitae](Simms_CV.pdf)
+
+## Writing Samples
+
+- [**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis**](https://s3.amazonaws.com/handshake.production/documents/documents/020/186/655/original/Simms_UofI_Undergraduate_Thesis.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAILGI2B7PIOQKG5EA%2F20210225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210225T075227Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=4257aa2b1be0d2a9582bc4f4cda8761083c29caea069bdf1d078f601150117bd) - Simms, C. 2020
+
+- [**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement**](https://s3.amazonaws.com/handshake.production/documents/documents/020/186/689/original/Simms_UofI_Undergraduate_Issue_Brief.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAILGI2B7PIOQKG5EA%2F20210225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210225T075304Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=f6917051c123d076e6306251fdb1757fa2c45f1720b79349d0c960e430751bfd) - Simms, C. 2020
+
+## Courses Taken to Date
 
 - EDCI 404: McNair Graduate Preparatory
 - EDCI 504: McNair Advanced Research Methods
@@ -25,21 +27,3 @@ knitr::opts_chunk$set(echo = FALSE,
 - ESM 241: Environmental Politics and Policy
 - ESM 244: Advanced Data Analysis
 - ESM 256A: Eco-Entrepreneurship
-
-## Writing Samples
-
-- [**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis**](https://s3.amazonaws.com/handshake.production/documents/documents/020/186/655/original/Simms_UofI_Undergraduate_Thesis.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAILGI2B7PIOQKG5EA%2F20210225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210225T075227Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=4257aa2b1be0d2a9582bc4f4cda8761083c29caea069bdf1d078f601150117bd) - Simms, C. 2020
-
-- [**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement**](https://s3.amazonaws.com/handshake.production/documents/documents/020/186/689/original/Simms_UofI_Undergraduate_Issue_Brief.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAILGI2B7PIOQKG5EA%2F20210225%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210225T075304Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=f6917051c123d076e6306251fdb1757fa2c45f1720b79349d0c960e430751bfd) - Simms, C. 2020
-
-## Lifetime Awards
-
-- Environmental Science and Management Graduate Scholarship ($69,804)
-- Ronald E. McNair Post-Baccalaureate Achievement Research Grant ($3,500)
-- DeVlieg Foundation Research Grant ($3,000)
-- Ramseyer/Daly General Scholarship ($779)
-- Honors Scholars Endowment ($200)
-- Monnett, Wallace and Dorothy Scholarship ($1,000)
-- Henry, Mary Lillian Scholarship ($494)
-- Phi Eta Sigma Honors Scholarship ($100)
-- Academic Achievement Level Scholarship ($1,727)

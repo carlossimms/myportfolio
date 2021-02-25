@@ -1,0 +1,87 @@
+---
+title: " "
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE)
+
+library(tidyverse)
+library(here)
+library(sf)
+library(raster)
+library(fasterize)
+library(rgdal)
+library(rnaturalearth)
+library(rnaturalearthdata)
+```
+
+# Example 3: Working With Raster Data
+
+**Cetacean Species Richness Off the Coast of the Southern CA Bight**
+
+```{r}
+# Reading in a CA coastline shapefile from the 'rnaturalearth' package:
+
+ca_coastline <- ne_coastline(scale = "medium", 
+                             returnclass = "sf")
+
+# Reading in the raster layers all at once:
+
+ca_cetaceans <- list.files(path = here("ca_cetaceans"), 
+                    pattern = ".tif", 
+                    full.names = TRUE)
+
+# Stacking all layers as a multilayer:
+
+cetaceans_stacked <- stack(ca_cetaceans)
+
+# Defining the algebra on multiple raster layers:
+
+cetaceans_prob <- function(x) {
+  if_else(x > 0.9, 
+          1, 
+          0)
+}
+
+cetaceans_occurrence <- calc(cetaceans_stacked, 
+                             function(x) {
+                               cetaceans_prob(x)
+                               })
+
+cetaceans_summed <- calc(cetaceans_occurrence, 
+                         sum)
+
+# Converting the rasters to a data frame:
+
+cetaceans_df <- rasterToPoints(cetaceans_summed) %>% 
+  as.data.frame()
+
+# Graphing the raster data frame:
+
+ggplot(data = ca_coastline) + 
+  geom_sf() + 
+  coord_sf(xlim = c(-122, 
+                    -116), 
+           ylim = c(31, 
+                    35), 
+           expand = FALSE) + 
+  geom_raster(data = cetaceans_df, 
+              aes(x = x, 
+                  y = y, 
+                  fill = layer), 
+              alpha = 0.8) + 
+  theme_void() + 
+  scale_fill_gradientn(colors = c("darkseagreen1",
+                                  "seagreen3", 
+                                  "seagreen"), 
+                       name = "Cetacean spp.\nRichness")
+```
+
+**Figure 1.** A raster showing species (spp.) richness - the number of species that could be found in a particular location - of 35 cetaceans off the coast of the Southern California Bight. The color gradient calculates richness based on the relative environmental suitability and species preferences for water temperature, depth, salinity, and distance to land. The numerical threshold used was 0.9, to provide a greater gradient extent of species richness *(Source: Kaschner et al. 2016)*.
+
+**Citation**
+
+Kaschner *et al.* (2016). *AquaMaps: Predicted range maps for aquatic species*. www.aquamaps.org

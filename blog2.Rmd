@@ -1,0 +1,82 @@
+---
+title: " "
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE)
+
+library(tidyverse)
+library(here)
+library(janitor)
+library(sf)
+library(tmap)
+library(gstat)
+library(stars)
+```
+
+# Example 2: Visualizing Spatial Data
+
+**Locations of 2008 Oil Spill Events in CA**
+
+```{r}
+# Reading in the "CA DFW Oil Spill Incident Tracking" data:
+
+ca_oil_spills <- read_sf(here("ca_oil_spills"), 
+                         layer = "ds394") %>% 
+  clean_names()
+
+# Creating an exploratory interactive 'tmap':
+
+tmap_mode("view")
+
+tm_shape(ca_oil_spills) + 
+  tm_dots("red")
+```
+
+**Figure 1.** An interactive map of California detailing the exact locations of all recorded 2008 oil spill events in and off the coast of the state *(Data Source: Cal EMA & DFG-OSPR 2009)*.
+
+**2008 Oil Spill Events in CA Occurring Inland by County**
+
+```{r}
+# Reading in the CA county shapefile data:
+
+ca_counties <- read_sf(here("ca_counties"), 
+                       layer = "CA_Counties_TIGER2016") %>% 
+  clean_names()
+
+# Wrangling the data to specify the total count of inland oil spill events by county:
+
+ca_inland_spills <- ca_oil_spills %>% 
+  filter(inlandmari == "Inland") %>% 
+  count(localecoun) %>% 
+  rename(count = n)
+
+# Matching the CRS of the two data frames and then joining:
+
+ca_inland_spills <- st_transform(ca_inland_spills, 
+                                 3857)
+
+ca_spill_counts <- ca_counties %>% 
+  st_join(ca_inland_spills)
+  
+# Creating a finalized static chloropleth map:
+
+ggplot(data = ca_spill_counts) +
+  geom_sf(aes(fill = count), 
+          color = "darkred", 
+          size = 0.1) +
+  theme_void() + 
+  scale_fill_gradientn(colors = c("yellow", 
+                                  "red", 
+                                  "darkred"), 
+                       name = "Total Number\nof Oil Spills")
+```
+
+**Figure 2.** A static chloropleth map of California detailing the total counts of all recorded 2008 oil spill events in the state, occurring inland by county *(Data Source: Cal EMA & DFG-OSPR 2009)*.
+
+**Citation**
+
+Cal EMA & DFG-OSPR. (2009). *Oil spill incident tracking* (Edition 2008) [ds394]. California Department of Fish and Game, Office of Spill Prevention and Response, Sacramento, USA. https://map.dfg.ca.gov/metadata/ds0394.html#ID0EKADA
