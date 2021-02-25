@@ -19,7 +19,7 @@ site: distill::distill_website
 output: postcards::trestles
 ---
 
-<img style="float: center; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="700" height="300"/> *(Simms, C. 2020. "Campus Beach". Isla Vista, CA.)*
+<img style="float: center; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="700" height="300"/> *(Simms, C. 2020. "Campus Beach". Isla Vista, CA, USA.)*
 
 ### Biography
 

@@ -104,7 +104,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["_posts"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2118,19 +2118,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Amiri');
-  @import url('https://fonts.googleapis.com/css2?family=Bitter');
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono');
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 
 
   html {
     /*-- Main font sizes --*/
     --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
+    --body-size:       1.1rem;
+    --code-size:       12px;
+    --aside-size:      6px;
+    --fig-cap-size:    6px;
     /*-- Main font colors --*/
     --title-color:     #000000;
     --header-color:    rgba(0, 0, 0, 0.8);
@@ -2138,10 +2136,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --aside-color:     rgba(0, 0, 0, 0.6);
     --fig-cap-color:   rgba(0, 0, 0, 0.6);
     /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    "Amiri", serif;
-    --mono-font:       "DM Mono", monospace;
-    --body-font:       "Bitter", sans-serif;
-    --navbar-font:     "Fredoka One", serif;  /* websites + blogs only */
+    --heading-font:    "EB Garamond", serif;
+    --mono-font:       "EB Garamond", serif;
+    --body-font:       "EB Garamond", serif;
+    --navbar-font:     "Julius Sans One", serif;  /* websites + blogs only */
   }
 
   /*-- ARTICLE METADATA --*/
@@ -2173,15 +2171,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --title-size:       20px;
     --text-color:       #FFF7FB;
     --text-size:        20px;
-    --hover-color:      #FED976;
-    --bkgd-color:       #045A8D;
+    --hover-color:      #ffed10;
+    --bkgd-color:       #a90707;
   }
 
   .distill-site-footer {
     --text-color:       rgba(255, 255, 255, 0.8);
     --text-size:        15px;
     --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
+    --bkgd-color:       #ffdcdc;
   }
 
   /*-- Additional custom styles --*/
@@ -2540,32 +2538,26 @@ function init_posts_list() {
 
 
 <div class="d-article">
-<h1 id="example-1-snowshoe-hare-exploratory-report">Example 1: Snowshoe Hare Exploratory Report</h1>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
+<h1 id="data-project-example-1-exploratory-data-report">Data Project Example 1: Exploratory Data Report</h1>
 <p><strong>Introduction</strong></p>
-<p>The Bonanza Creek Experimental Forest (BCEF) is located 20 km southwest of Fairbanks, Alaska. Within the boreal forests of the Tanana Valley, the BCEF is managed by the Institute of Arctic Biology at The University of Alaska in Fairbanks. Within the BCEF, the snowshoe hare (<em>Lepus americanus</em>) is a keystone species that is regularly subjected to capture-recapture studies to assess their population demographics. There are three main hare capture-recapture sites within the Tanana Valley, denoted as the “lowland,” “forested,” and “riparian” long-term ecological research sites. The lowland site consists of a mature lowland black spruce (<em>Picea mariana</em>) stand. The forested site consists of a mature black spruce forest, approximately 2 km inland from the riparian site. And the riparian site is a flood zone along the Tanana River, where its promenant vegetation consists of willow (<em>Salix spp.</em>), paper birch (<em>Betula papyrifera</em>), alder (<em>Alnus spp.</em>), white spruce (<em>Picea glauca</em>), and fireweed (<em>Epilobium augustifolium</em>). Effective ecosystem conservation within Alaska’s Tanana Valley, revolves around the effective study and management of the region’s keystone hare species within these three primary capture-recapture sites over time (Feierabend and Kielland 2015, Kielland et al. 2017).</p>
+<p>The Bonanza Creek Experimental Forest (BCEF) is located 20 km southwest of Fairbanks, Alaska. Within the boreal forests of the Tanana Valley, the BCEF is managed by the Institute of Arctic Biology at The University of Alaska in Fairbanks. Within the BCEF, the snowshoe hare (<em>Lepus americanus</em>) is a keystone species that is regularly subjected to capture-recapture studies to assess their population demographics. There are three main hare capture-recapture sites within the Tanana Valley, denoted as the “lowland,” “forested,” and “riparian” long-term ecological research sites. The lowland site consists of a mature lowland black spruce (<em>Picea mariana</em>) stand. The forested site consists of a mature black spruce forest, approximately 2 km inland from the riparian site. And the riparian site is a flood zone along the Tanana River, where its promenant vegetation consists of willow (<em>Salix spp.</em>), paper birch (<em>Betula papyrifera</em>), alder (<em>Alnus spp.</em>), white spruce (<em>Picea glauca</em>), and fireweed (<em>Epilobium augustifolium</em>). Effective ecosystem conservation within Alaska’s Tanana Valley, revolves around the effective study and management of the region’s keystone hare species within these three primary capture-recapture sites over time (Feierabend &amp; Kielland 2015, Kielland et al. 2017).</p>
 <p><strong>Data and Analysis</strong></p>
 <p>This report explored and analyzed the juvenile snowshoe hare data that was accumulated by Kielland et al. (2017), between 1998 and 2012 within the BCEF. The analysis explored and assessed the total number of annual juvenile hare trappings, the distribution of juvenile hare weights by sex and by trapping site, the statistics of hare weight by sex, and the relationship between juvenile hare weight and hind foot length. A simple bar chart was used to visualize the total number of juvenile hare trappings by year. A faceted beeswarm chart, parted three ways to disassociate male, female, and non-specified hare sexes, was used to visualize and assess the distribution of juvenile hare weights by sex and by trapping site. A table, with weight mean, median, standard deviation, and the total observed hare count (<em>n</em>), was used to summarize the statistics for hare weight by sex, in addition to utilizing a two-sample t-test and Cohen’s <em>d</em>. And, a scatterplot with a line of linear regression was used to visualize and assess the relationship between juvenile hare weight and hind foot length, in addition to utilizing Pearson’s <em>r</em>. A concluding summary was included to gather and describe the main findings from this exploratory report on snowshoe hares.</p>
 <p><strong>Findings</strong></p>
-<p><strong>I. The Total Number of Juvenile Hare Trappings by Year</strong></p>
+<p><strong>I.</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="blog1_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+</div>
+<p><strong>Figure 1.1.</strong> The total number of trapped juvenile snowshoe hares at the three BCEF, long-term ecological research sites, between 1998 and 2012 <em>(Source: Kielland et al. 2017)</em>.</p>
+<p>As illustrated in <strong>Figure 1.1</strong>, for the highest total count of hares trapped for a given year, 126 hares were trapped in 1999. The lowest total count for a given year, occured in 1998, 2002, and 2009, with 0 hares trapped. The average count is at 31.5 hares and the median is at 18.5 hares. It is too assumptive to extrapolate a trend given the counts recorded by the Institute of Arctic Biology. There are gaps in the recording of observations, where it can be inferred that, potentially, there were limitations in funding, labor, effort, and/or other such barriers that had played into the lack of adequate trapping of hares in, seemingly, all years other than 1999. A solution to standardizing trapped juvenile hare observations in the future, would be to develop an ecology and statistics-based internship for students through The University of Alaska, Fairbanks. This way, students could derive a real-world learning experience, all while the university maintains consistency in hare trapping records within the Tanana Valley region.</p>
+<p><strong>II.</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="blog1_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<p><strong>Figure 1.</strong> The total number of trapped juvenile snowshoe hares at the three BCEF, long-term ecological research sites, between 1998 and 2012 <em>(Source: Kielland et al. 2017)</em>.</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>As illustrated in <strong>Figure 1</strong>, for the highest total count of hares trapped for a given year, 126 hares were trapped in 1999. The lowest total count for a given year, occured in 1998, 2002, and 2009, with 0 hares trapped. The average count is at 31.5 hares and the median is at 18.5 hares. It is too assumptive to extrapolate a trend given the counts recorded by the Institute of Arctic Biology. There are gaps in the recording of observations, where it can be inferred that, potentially, there were limitations in funding, labor, effort, and/or other such barriers that had played into the lack of adequate trapping of hares in, seemingly, all years other than 1999. A solution to standardizing trapped juvenile hare observations in the future, would be to develop an ecology and statistics-based internship for students through The University of Alaska, Fairbanks. This way, students could derive a real-world learning experience, all while the university maintains consistency in hare trapping records within the Tanana Valley region.</p>
-<p><strong>II. The Weights of Juvenile Hares by Sex and by Trapping Site</strong></p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="blog1_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
-</div>
-<p><strong>Figure 2.</strong> Recorded juvenile snowshoe hare weights by sex and site at the three BCEF, long-term ecological research sites, between 1998 and 2012. “NA” relates to those observations in which sex was not recorded. Included, are mean values and errorbars in black <em>(Source: Kielland et al. 2017)</em>.</p>
-<p><strong>Figure 2</strong> shows that juvenile hares remain in a weight range of approximately 200 to 1,700 grams, where the mean weights between sex and across the three long-term ecological research sites show notable characteristics. Male hares tend to maintain a higher average weight than that of female hares. In total, throughout the 1998 to 2012 data accumulation period, more hares were trapped along the riparian site and more female hares were trapped along the lowland site. Though with reference to the lack of consistent hare trapping that was inferred from <strong>Figure 1</strong>, it is unlikely that these characteristics are representative of the distribution of the different juvenile hare sexes along these three sites.</p>
-<p><strong>III. The Weight Statistics by Sex for Juvenile Hares</strong></p>
-<p><strong>Table 1.</strong> The weight mean, median, standard deviation, and total observation count for trapped female and male juvenile hares across all sites and years <em>(Source: Kielland et al. 2017)</em>.</p>
+<p><strong>Figure 1.2.</strong> Recorded juvenile snowshoe hare weights by sex and site at the three BCEF, long-term ecological research sites, between 1998 and 2012. “NA” relates to those observations in which sex was not recorded. Included, are mean values and errorbars in black <em>(Source: Kielland et al. 2017)</em>.</p>
+<p><strong>Figure 1.2</strong> shows that juvenile hares remain in a weight range of approximately 200 to 1,700 grams, where the mean weights between sex and across the three long-term ecological research sites show notable characteristics. Male hares tend to maintain a higher average weight than that of female hares. In total, throughout the 1998 to 2012 data accumulation period, more hares were trapped along the riparian site and more female hares were trapped along the lowland site. Though with reference to the lack of consistent hare trapping that was inferred from <strong>Figure 1.1</strong>, it is unlikely that these characteristics are representative of the distribution of the different juvenile hare sexes along these three sites.</p>
+<p><strong>III. Juvenile Hare Weight Statistics by Sex</strong></p>
+<p><strong>Table 1.1.</strong> The weight mean, median, standard deviation, and total observation count for trapped female and male juvenile hares across all sites and years <em>(Source: Kielland et al. 2017)</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <table class="table table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2625,18 +2617,27 @@ m
 </tbody>
 </table>
 </div>
-<p>In reference to <strong>Table 1</strong>, a two-sample t-test and a Cohen’s <em>d</em> are calculated to derive a holistic view of the difference in weights between male and female juvenile hares within the three BCEF sites. The actual difference in weight means between the sexes is 90.5 grams. With a p-value of 0.007, there is a 0.7% probability that the two sample means were of the same population; meaning, there was more evidence of a significant difference between population means and they were likely drawn from “different” populations. Cohen’s <em>d</em> is calculated at -0.29, demonstrating a narrow margin of standard deviation where distributed observations tend to be closer to the sample mean.</p>
-<p><strong>IV. The Relationship Between Juvenile Hare Weight and Hind Foot Length</strong></p>
+<p>In reference to <strong>Table 1.1</strong>, a two-sample t-test and a Cohen’s <em>d</em> are calculated to derive a holistic view of the difference in weights between male and female juvenile hares within the three BCEF sites. The actual difference in weight means between the sexes is 90.5 grams. With a p-value of 0.007, there is a 0.7% probability that the two sample means were of the same population; meaning, there was more evidence of a significant difference between population means and they were likely drawn from “different” populations. Cohen’s <em>d</em> is calculated at -0.29, demonstrating a narrow margin of standard deviation where distributed observations tend to be closer to the sample mean.</p>
+<p><strong>IV.</strong></p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="blog1_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="blog1_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<p><strong>Figure 3.</strong> The relationship between juvenile hare hind foot length and weight, regardless of sex, across the three BCEF, long-term ecological research sites, between 1998 and 2012 <em>(Source: Kielland et al. 2017)</em>.</p>
-<p>With a calculated Pearson’s <em>r</em> of 0.55, <strong>Figure 3</strong> shows that there is a moderate, positive relationship between hind foot length and weight for all juvenile hares, across all BCEF sites. The relationship has a slope of 9.5, denoting that for every one mm increase in hind foot length, there is an additional 9.5 gram increase in weight. Worring though, are the outliers in <strong>Figure 3</strong> that are skewing the linear regression. There seems to be a greater amount of trapped hare observations randomly dispersed on the right of the graph, versus the lesser amount that are concentrated around the projected regression line on the left of the graph. Since the data wasn’t recorded in a consistent manner between 1998 and 2012, an assumption can be provided that if there was more consistent trapping of juvenile hares, there would otherwise be a more recognizable relationship.</p>
+<p><strong>Figure 1.3.</strong> The relationship between juvenile hare hind foot length and weight, regardless of sex, across the three BCEF, long-term ecological research sites, between 1998 and 2012 <em>(Source: Kielland et al. 2017)</em>.</p>
+<p>With a calculated Pearson’s <em>r</em> of 0.55, <strong>Figure 1.3</strong> shows that there is a moderate, positive relationship between hind foot length and weight for all juvenile hares, across all BCEF sites. The relationship has a slope of 9.5, denoting that for every one mm increase in hind foot length, there is an additional 9.5 gram increase in weight. Worring though, are the outliers in <strong>Figure 1.3</strong> that are skewing the linear regression. There seems to be a greater amount of trapped hare observations randomly dispersed on the right of the graph, versus the lesser amount that are concentrated around the projected regression line on the left of the graph. Since the data wasn’t recorded in a consistent manner between 1998 and 2012, an assumption can be provided that if there was more consistent trapping of juvenile hares, there would otherwise be a more recognizable relationship.</p>
 <p><strong>Summary</strong></p>
 <p>As a keystone species, the snowshoe hare maintains an important role within the health of the greater Tanana Valley ecosystem in Alaska. This report explored and analyzed juvenile hare data accumulated by Kielland et al. (2017) between 1998 and 2012 in that region. The analysis explored and assessed the total number of annual juvenile hare trappings, the distribution of juvenile hare weights by sex and by trapping site, the statistics of hare weight by sex, and the relationship between juvenile hare weight and hind foot length. Intermittent and inconsistent attention to hare trapping throughout the 14 year period resulted in skewed observation counts, where 126 hares were trapped in 1999 and 0 hares were trapped in 1998, 2002, and 2009. Though with the data provided, juvenile hares maintained a weight range of approximately 200 to 1,700 grams, where the mean weights between sex and across the lowland, forested, and riparian sites shown a visible difference. This is despite the fact that the two-sample t-test determined that there was evidence of a significant difference between sample means. It would thus be an extrapolation to claim that the samples used in this analysis is representative of the population. It was visualized that male hares maintained a higher average weight than that of female hares, at approximately 90.5 grams. There was a moderate, positive relationship calculated between hind foot length and weight for all juvenile hares, across all sites, also demonstrating a narrow margin of deviation of observations from the projected sample mean. In conclusion, the results of this exploratory report are ambiguous. Increased investment of resources into a consistent hare trapping routine, would be benefitical in holistically deriving relationships from hare data.</p>
 <p><strong>Citations</strong></p>
-<p>Feierabend, D., &amp; Kielland., K. (2015). Seasonal effects of habitat on sources and rates of snowshoe hare predation in Alaskan boreal forests. <em>PLOS ONE</em>, 10(12).</p>
-<p>Kielland, K., Chapin, F.S., Ruess, R.W., &amp; Bonanza Creek LTER. (2017). Snowshoe hare physical data in Bonanza Creek Experimental Forest: 1999-present (Version 22). Environmental Data Initiative.</p>
+<p>Clarke, E., &amp; Sherrill-Mix, S. (2017). ggbeeswarm: Categorical scatter (violin point) plots [R package].</p>
+<p>Feierabend, D., &amp; Kielland., K. (2015). Seasonal effects of habitat on sources and rates of snowshoe hare predation in Alaskan boreal forests. <em>PLOS ONE</em>, <em>10</em>(12).</p>
+<p>Firke, S. (2021). janitor: Simple tools for examining and cleaning dirty data [R package].</p>
+<p>Grolemund, G., &amp; Wickham, H. (2011). Dates and times made easy with lubridate [R package]. <em>Journal of Statistical Software</em>, <em>40</em>(3), 1-25.</p>
+<p>Kassambara, A. (2020). ggpubr: ‘ggplot2’ based publication ready plots [R package].</p>
+<p>Kielland, K., Chapin, F.S., Ruess, R.W., &amp; Bonanza Creek LTER. (2017). <em>Snowshoe hare physical data in Bonanza Creek Experimental Forest: 1999-present</em> (Version 22) [Raw data]. Environmental Data Initiative.</p>
+<p>Müller, K. (2020). here: A simpler way to find your files [R package].</p>
+<p>RStudio Team. (2021). <em>RStudio: Integrated development environment for R</em> (Version 4.0.3) [Computer software]. RStudio PBC, Boston, USA.</p>
+<p>Torchiano, M. (2020). effsize: Efficient effect size computation [R package].</p>
+<p>Wickham <em>et al.</em> (2019). Welcome to the tidyverse [R package]. <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686.</p>
+<p>Zhu, H. (2021). kableExtra: Construct complex table with ‘kable’ and pipe syntax [R package].</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

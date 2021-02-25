@@ -1,6 +1,6 @@
 ---
 title: " "
-listing: posts
+listing: _posts
 ---
 
 ```{r setup, include=FALSE}
@@ -8,18 +8,24 @@ knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE, 
                       message = FALSE)
 
-library(tidyverse)
-library(here)
-library(janitor)
-library(sf)
-library(tmap)
-library(gstat)
-library(stars)
+# Attaching relevant packages:
+
+library(tidyverse) # Wickham et al. 2019
+library(here) # Müller 2020
+library(janitor) # Firke 2021
+library(sf) # Pebesma 2018
+library(tmap) # Tennekes 2018
+library(gstat) # Pebesma 2004, Gräler et al. 2016
+library(stars) # Pebesma 2021
 ```
 
-# Example 2: Visualizing Spatial Data
 
-**Locations of 2008 Oil Spill Events in CA**
+
+# Data Project Example 2: Visualizing Spatial Data
+
+
+
+**I. Locations of 2008 Oil Spill Events in CA**
 
 ```{r}
 # Reading in the "CA DFW Oil Spill Incident Tracking" data:
@@ -36,16 +42,18 @@ tm_shape(ca_oil_spills) +
   tm_dots("red")
 ```
 
-**Figure 1.** An interactive map of California detailing the exact locations of all recorded 2008 oil spill events in and off the coast of the state *(Data Source: Cal EMA & DFG-OSPR 2009)*.
+**Figure 2.1.** An interactive map of California detailing the exact locations of all recorded 2008 oil spill events in and off the coast of the state *(Source: Cal EMA & DFG-OSPR 2009)*.
 
-**2008 Oil Spill Events in CA Occurring Inland by County**
+**II.**
 
 ```{r}
 # Reading in the CA county shapefile data:
 
 ca_counties <- read_sf(here("ca_counties"), 
                        layer = "CA_Counties_TIGER2016") %>% 
-  clean_names()
+  clean_names() %>% 
+  select(name) %>% 
+  rename(county_name = name)
 
 # Wrangling the data to specify the total count of inland oil spill events by county:
 
@@ -72,11 +80,33 @@ ggplot(data = ca_spill_counts) +
   scale_fill_gradientn(colors = c("yellow", 
                                   "red", 
                                   "darkred"), 
-                       name = "Total Number\nof Oil Spills")
+                       name = "Total Number\nof Oil Spills") + 
+  labs(title = "2008 Oil Spill Events in CA Occurring Inland by County") + 
+  theme(plot.title = element_text(face = "bold", 
+                                  hjust = 0.5, 
+                                  vjust = 2.5))
 ```
 
-**Figure 2.** A static chloropleth map of California detailing the total counts of all recorded 2008 oil spill events in the state, occurring inland by county *(Data Source: Cal EMA & DFG-OSPR 2009)*.
+**Figure 2.2.** A static chloropleth map of California detailing the total counts of all recorded 2008 oil spill events in the state, occurring inland by county *(Source: Cal EMA & DFG-OSPR 2009)*.
 
-**Citation**
+**Citations**
 
-Cal EMA & DFG-OSPR. (2009). *Oil spill incident tracking* (Edition 2008) [ds394]. California Department of Fish and Game, Office of Spill Prevention and Response, Sacramento, USA. https://map.dfg.ca.gov/metadata/ds0394.html#ID0EKADA
+Cal EMA & DFG-OSPR. (2009). *Oil spill incident tracking* (Edition 2008) [Raw data]. California Department of Fish and Game, Office of Spill Prevention and Response, Sacramento, USA.
+
+Firke, S. (2021). janitor: Simple tools for examining and cleaning dirty data [R package].
+
+Gräler, B., Pebesma, E., & Heuvelink, G. (2016). Spatio-temporal interpolation using gstat [R package]. *The R Journal*, *8*(1), 204-218.
+
+Müller, K. (2020). here: A simpler way to find your files [R package].
+
+Pebesma, E. (2004). Multivariable geostatistics in S: The gstat package [R package]. *Computers & Geosciences*, *30*, 683-691.
+
+Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data [R package]. *The R Journal*, *10*(1), 439-446.
+
+Pebesma, E. (2021). stars: Spatiotemporal arrays, raster and vector data cubes [R package].
+
+RStudio Team. (2021). *RStudio: Integrated development environment for R* (Version 4.0.3) [Computer software]. RStudio PBC, Boston, USA.
+
+Tennekes, M. (2018). tmap: Thematic maps in R [R package]. *Journal of Statistical Software*, *84*(6), 1-39.
+
+Wickham *et al.* (2019). Welcome to the tidyverse [R package]. *Journal of Open Source Software*, *4*(43), 1686.

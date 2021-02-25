@@ -104,7 +104,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["_posts"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2118,19 +2118,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /* Optional: embed custom fonts here with `@import`          */
   /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Amiri');
-  @import url('https://fonts.googleapis.com/css2?family=Bitter');
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono');
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 
 
   html {
     /*-- Main font sizes --*/
     --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
+    --body-size:       1.1rem;
+    --code-size:       12px;
+    --aside-size:      6px;
+    --fig-cap-size:    6px;
     /*-- Main font colors --*/
     --title-color:     #000000;
     --header-color:    rgba(0, 0, 0, 0.8);
@@ -2138,10 +2136,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --aside-color:     rgba(0, 0, 0, 0.6);
     --fig-cap-color:   rgba(0, 0, 0, 0.6);
     /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    "Amiri", serif;
-    --mono-font:       "DM Mono", monospace;
-    --body-font:       "Bitter", sans-serif;
-    --navbar-font:     "Fredoka One", serif;  /* websites + blogs only */
+    --heading-font:    "EB Garamond", serif;
+    --mono-font:       "EB Garamond", serif;
+    --body-font:       "EB Garamond", serif;
+    --navbar-font:     "Julius Sans One", serif;  /* websites + blogs only */
   }
 
   /*-- ARTICLE METADATA --*/
@@ -2173,15 +2171,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --title-size:       20px;
     --text-color:       #FFF7FB;
     --text-size:        20px;
-    --hover-color:      #FED976;
-    --bkgd-color:       #045A8D;
+    --hover-color:      #ffed10;
+    --bkgd-color:       #a90707;
   }
 
   .distill-site-footer {
     --text-color:       rgba(255, 255, 255, 0.8);
     --text-size:        15px;
     --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
+    --bkgd-color:       #ffdcdc;
   }
 
   /*-- Additional custom styles --*/
@@ -2538,7 +2536,28 @@ function init_posts_list() {
 
 
 <div class="d-article">
-<h1 id="example-4-text-and-sentiment-analysis">Example 4: Text and Sentiment Analysis</h1>
+<h1 id="data-project-example-4-text-and-sentiment-analysis">Data Project Example 4: Text and Sentiment Analysis</h1>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p><strong>I.</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="blog4_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<p><strong>Figure 4.1.</strong> The total counts of the top five most frequently used words within each of the fourteen chapters of <em>All the Light We Cannot See</em> - a historical fiction novel narrating a story of dystopian fate across Occupied France, during the climax of World War II in Western Europe. Character names were most frequently used - Werner and Marie were the two main characters for the story of fate <em>(Source: Doerr 2014)</em>.</p>
+<p><strong>II.</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="blog4_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<p><strong>Figure 4.2.</strong> The results of a sentiment analysis on the text for each of the fourteen chapters within <em>All the Light We Cannot See</em>. The words used within each chapter were associated with ten common emotions, denoting negative or positive sentiments for used words <em>(Source: Doerr 2014)</em>.</p>
+<p><strong>Citations</strong></p>
+<p>Doerr, A. (2014). <em>All the light we cannot see</em>. Fourth Estate, HarperCollins Publishers LLC, London, UK.</p>
+<p>Hvitfeldt, E. (2020). textdata: Download and load various text datasets [R package].</p>
+<p>Müller, K. (2020). here: A simpler way to find your files [R package].</p>
+<p>Ooms, J. (2020). pdftools: Text extraction, rendering and converting of PDF documents [R package].</p>
+<p>RStudio Team. (2021). <em>RStudio: Integrated development environment for R</em> (Version 4.0.3) [Computer software]. RStudio PBC, Boston, USA.</p>
+<p>Silge, J., &amp; Robinson, D. (2016). tidytext: Text mining and analysis using tidy data principles in R [R package]. <em>JOSS</em>, <em>1</em>(3).</p>
+<p>Wickham <em>et al.</em> (2019). Welcome to the tidyverse [R package]. <em>Journal of Open Source Software</em>, <em>4</em>(43), 1686.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

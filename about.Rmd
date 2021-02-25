@@ -2,7 +2,7 @@
 title: "Resume and Curriculum Vitae"
 ---
 
-<img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="400" height="540"/> *(Official Image. Carlos Simms and other lobbyists with Idaho Senator James Risch. Russell Senate Office, Capitol Hill, Washington, D.C. February 4, 2020)*
+<img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="400" height="540"/> *(Official Image. Left to right: Eric Means, Carlos Simms, Idaho Senator James Risch, Lindsay Sonderhouse, Benjamin Gage, and Paul Hancock. Russell Senate Office, Washington, DC, USA. February 4, 2020)*
 
 ## [Resume](Simms_Resume.pdf)
 
