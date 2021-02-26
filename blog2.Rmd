@@ -19,11 +19,11 @@ library(gstat) # Pebesma 2004, Gräler et al. 2016
 library(stars) # Pebesma 2021
 ```
 
-
-
 # Data Project Example 2: Visualizing Spatial Data
 
+**Project Description**
 
+*INSERT DESCRIPTION HERE.*
 
 **I. Locations of 2008 Oil Spill Events in CA**
 
@@ -110,3 +110,5 @@ RStudio Team. (2021). *RStudio: Integrated development environment for R* (Versi
 Tennekes, M. (2018). tmap: Thematic maps in R [R package]. *Journal of Statistical Software*, *84*(6), 1-39.
 
 Wickham *et al.* (2019). Welcome to the tidyverse [R package]. *Journal of Open Source Software*, *4*(43), 1686.
+
+^*webpage contains ip @ 2021 Carlos Simms*^

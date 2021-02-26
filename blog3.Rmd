@@ -20,11 +20,11 @@ library(rnaturalearth) # South 2017a
 library(rnaturalearthdata) # South 2017b
 ```
 
-
-
 # Data Project Example 3: Working With Raster Data
 
+**Project Description**
 
+*INSERT DESCRIPTION HERE.*
 
 ```{r}
 # Reading in a CA coastline shapefile from the 'rnaturalearth' package:
@@ -110,3 +110,5 @@ South, A. (2017a). rnaturalearth: World map data from Natural Earth [R package].
 South, A. (2017b). rnaturalearthdata: World vector map data from Natural Earth used in 'rnaturalearth' [R package].
 
 Wickham *et al.* (2019). Welcome to the tidyverse [R package]. *Journal of Open Source Software*, *4*(43), 1686.
+
+^*webpage contains ip @ 2021 Carlos Simms*^

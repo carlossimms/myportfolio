@@ -20,11 +20,11 @@ library(effsize) # Torchiano 2020
 library(ggpubr) # Kassambara 2020
 ```
 
-
-
 # Data Project Example 1: Exploratory Data Report
 
+**Project Description**
 
+*The Bonanza Creek Experimental Forest LTER is part of the United States Long-Term Ecological Research Network. To see more information about the site, click [here](https://www.lter.uaf.edu/). In this data report, the counts and sizes of juvenile snowshoe hares recorded from 1998 to 2012, are explored. An introduction, a description of the data and analysis, findings in four parts, and a summary are provided. To access an .html file with project code, click [here](exploratory_data_report.html).*
 
 **Introduction**
 
@@ -222,3 +222,5 @@ Torchiano, M. (2020). effsize: Efficient effect size computation [R package].
 Wickham *et al.* (2019). Welcome to the tidyverse [R package]. *Journal of Open Source Software*, *4*(43), 1686.
 
 Zhu, H. (2021). kableExtra: Construct complex table with 'kable' and pipe syntax [R package].
+
+^*webpage contains ip @ 2021 Carlos Simms*^

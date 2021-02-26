@@ -19,8 +19,12 @@ site: distill::distill_website
 output: postcards::trestles
 ---
 
-<img style="float: center; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="700" height="300"/> *(Simms, C. 2020. "Campus Beach". Isla Vista, CA, USA.)*
+<img style="float: center; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="700" height="300"/>
 
-### Biography
+^*(Simms, C. 2020. "Campus Beach". Isla Vista, CA, USA.)*^
 
-Carlos Simms is a Mexican-American, first-generation alumnus from the University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at the University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist and/or an energy and climate specialist for corporate America or for the growing renewable energy industry.
+## Biography
+
+Carlos Simms is a Mexican-American, first-generation alumnus from the University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at the University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist and/or an energy and climate specialist for corporate America and/or the renewable energy industry.
+
+^*webpage contains ip @ 2021 Carlos Simms*^
