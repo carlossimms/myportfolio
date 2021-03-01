@@ -24,7 +24,7 @@ library(rnaturalearthdata) # South 2017b
 
 **Project Description**
 
-*INSERT DESCRIPTION HERE.*
+*In this simple data project, AquaMaps raster layers detailing the probability of occurrence (richness) - based on relative environmental suitability, including species preferences for water temperature, depth, salinity, and distance to land - of 35 cetacean species that can be found in the Southern California Bight, are explored and visualized via a single static map. The extent of the raster map is 122°W to 116°W and 31°N to 35°N. To access an .html file with project code, click [here](working_raster_data.html).*
 
 ```{r}
 # Reading in a CA coastline shapefile from the 'rnaturalearth' package:
