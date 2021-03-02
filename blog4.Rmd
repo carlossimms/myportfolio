@@ -23,6 +23,8 @@ library(textdata) # Hvitfeldt 2020
 library(pdftools) # Ooms 2020
 ```
 
+**I.**
+
 ```{r}
 # Reading in the pdf text:
 
@@ -89,9 +91,7 @@ nonstop_counts <- atlwcs_nonstop_words %>%
   rename(count = n) # To rename the new column detailing the word counts per chapter to "count".
 ```
 
-**I.**
-
-```{r}
+```{r, fig.height=5.5, fig.width=9}
 # Searching for the top five most used words in each chapter:
 
 top_5_words <- nonstop_counts %>% 
@@ -141,7 +141,7 @@ ggplot(data = top_5_words,
 
 **II.**
 
-```{r}
+```{r, fig.height=8.5, fig.width=9}
 # Using the “NRC” lexicon to perform a sentiment analysis for each chapter:
 
 atlwcs_nrc <- atlwcs_nonstop_words %>% 

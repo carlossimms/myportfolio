@@ -26,6 +26,8 @@ library(rnaturalearth) # South 2017a
 library(rnaturalearthdata) # South 2017b
 ```
 
+**I.**
+
 ```{r}
 # Reading in a CA coastline shapefile from the 'rnaturalearth' package:
 
