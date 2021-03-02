@@ -104,7 +104,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["_posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":[" "]},{"type":"character","attributes":{},"value":["posts"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2538,17 +2538,194 @@ function init_posts_list() {
 <div class="d-article">
 <h1 id="data-project-example-4-text-and-sentiment-analysis">Data Project Example 4: Text and Sentiment Analysis</h1>
 <p><strong>Project Description</strong></p>
-<p><em>In this data project, a text and sentiment analysis was performed on Anthony Doerr’s 2014 book, “All the Light We Cannot See” - a historical fiction novel narrating a story of dystopian fate across Occupied France between a blind Frenchwoman and a German boy who was forced to fight for the Nazis during the climax of World War II in Western Europe. The text was pulled into a readable format, indexed, tokenized, and divided into chapters to find the top five most used words in each chapter and to perform a sentiment analysis on each chapter via the NRC lexicon. To access an .html file with project code, click <a href="text_sentiment_analysis.html">here</a>.</em></p>
+<p><em>In this data project, a text and sentiment analysis was performed on Anthony Doerr’s 2014 book, “All the Light We Cannot See” - a historical fiction novel narrating a story of dystopian fate across Occupied France between a blind Frenchwoman and a German boy who was forced to fight for the Nazis during the climax of World War II in Western Europe. The text was pulled into a readable format, indexed, tokenized, and divided into chapters to find the top five most used words in each chapter and to perform a sentiment analysis on each chapter via the NRC lexicon. To access an .html file with only project code, click <a href="text_sentiment_analysis.html">here</a>.</em></p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>echo <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+                      warning <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+                      message <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
+<span class='co'># Attaching relevant packages:</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span> <span class='co'># Wickham et al. 2019</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://here.r-lib.org/'>here</a></span><span class='op'>)</span> <span class='co'># Müller 2020</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/juliasilge/tidytext'>tidytext</a></span><span class='op'>)</span> <span class='co'># Silge &amp; Robinson 2016</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/EmilHvitfeldt/textdata'>textdata</a></span><span class='op'>)</span> <span class='co'># Hvitfeldt 2020</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://docs.ropensci.org/pdftools'>pdftools</a></span><span class='op'>)</span> <span class='co'># Ooms 2020</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Reading in the pdf text:</span>
+
+<span class='va'>atlwcs_text</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://docs.ropensci.org/pdftools/reference/pdftools.html'>pdf_text</a></span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"text"</span>, 
+                             <span class='st'>"all_the_light_we_cannot_see_text.pdf"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Wrangling and converting the pdf text into tidy format:</span>
+
+<span class='va'>atlwcs_tidy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>atlwcs_text</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To create a data frame of the entire pdf text.</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>text_full <span class='op'>=</span> <span class='fu'>str_split</span><span class='op'>(</span><span class='va'>atlwcs_text</span>, 
+                               pattern <span class='op'>=</span> <span class='st'>"\\n"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To have each line of text be its own row in the data frame.</span>
+  <span class='fu'>unnest</span><span class='op'>(</span><span class='va'>text_full</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To avoid the rows from being read as vectors.</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>text_full <span class='op'>=</span> <span class='fu'>str_trim</span><span class='op'>(</span><span class='va'>text_full</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># To remove excess whitespace within rows.</span>
+
+<span class='co'># Preparing a data frame for indexing:</span>
+
+<span class='va'>atlwcs_indexed</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_tidy</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>slice</span><span class='op'>(</span><span class='op'>-</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>250</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To slice out all the rows that come before the very first row of the beginning chapter of the pdf text.</span>
+  <span class='fu'>slice</span><span class='op'>(</span><span class='op'>-</span><span class='op'>(</span><span class='fl'>9817</span><span class='op'>:</span><span class='fl'>10091</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To slice out all the rows that come after the very last row of the ending chapter of the pdf text.</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>chapter <span class='op'>=</span> <span class='cn'>NA_character_</span><span class='op'>)</span> <span class='co'># To add a "chapter" column full of only "NA" values (this was for indexing, because there was no universal wording to use 'stringr' on).</span>
+
+<span class='co'># Indexing:</span>
+  
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>1</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Zero"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>241</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: One"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>1740</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Two"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>1902</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Three"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>3859</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Four"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>4099</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Five"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>5716</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Six"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>5917</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Seven"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>7016</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Eight"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>7365</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Nine"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>8164</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Ten"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>8975</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Eleven"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>9138</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Twelve"</span>
+<span class='va'>atlwcs_indexed</span><span class='op'>[</span><span class='fl'>9735</span>,<span class='fl'>3</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"Chapter: Thirteen"</span>
+
+<span class='co'># Filling all "NA" values in the "chapter" column to their appropriate chapter value:</span>
+
+<span class='va'>atlwcs_df</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_indexed</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>chapter <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='fu'>str_detect</span><span class='op'>(</span><span class='va'>chapter</span>, 
+                                        pattern <span class='op'>=</span> <span class='st'>"Chapter"</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>chapter</span>, 
+                             <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='cn'>NA_character_</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>fill</span><span class='op'>(</span><span class='va'>chapter</span><span class='op'>)</span>
+
+<span class='co'># Making tokens:</span>
+
+<span class='va'>atlwcs_tokens</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_df</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/tidytext/man/unnest_tokens.html'>unnest_tokens</a></span><span class='op'>(</span><span class='va'>word</span>, 
+                <span class='va'>text_full</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To disassociate the words found within each row of the "text_full" column as their independent value (token), under a new "word" column.</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>atlwcs_text</span><span class='op'>)</span> <span class='co'># To exclude the "atlwcs_text" column.</span>
+
+<span class='co'># Removing all "stop_words" that exist within the "atlwcs_tokens" data frame:</span>
+
+<span class='va'>atlwcs_nonstop_words</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_tokens</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>anti_join</span><span class='op'>(</span><span class='va'>stop_words</span><span class='op'>)</span> <span class='co'># To indicate the type of words to not keep within the text data frame.</span>
+
+<span class='co'># Counting the words used within each chapter of the pdf text:</span>
+
+<span class='va'>nonstop_counts</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_nonstop_words</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>chapter</span>, 
+        <span class='va'>word</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To count the number of times the disassociated words were used within each chapter of the pdf text.</span>
+  <span class='fu'>rename</span><span class='op'>(</span>count <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='co'># To rename the new column detailing the word counts per chapter to "count".</span>
+</code></pre>
+</div>
 </div>
 <p><strong>I.</strong></p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Searching for the top five most used words in each chapter:</span>
+
+<span class='va'>top_5_words</span> <span class='op'>&lt;-</span> <span class='va'>nonstop_counts</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>chapter</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To group counts by chapter.</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='op'>-</span><span class='va'>count</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To arrange by the highest counts.</span>
+  <span class='fu'>slice</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span> <span class='co'># To only include the top five.</span>
+
+<span class='va'>top_5_words</span><span class='op'>$</span><span class='va'>chapter</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>top_5_words</span><span class='op'>$</span><span class='va'>chapter</span>, 
+                              levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Chapter: Zero"</span>, 
+                                         <span class='st'>"Chapter: One"</span>, 
+                                         <span class='st'>"Chapter: Two"</span>, 
+                                         <span class='st'>"Chapter: Three"</span>, 
+                                         <span class='st'>"Chapter: Four"</span>, 
+                                         <span class='st'>"Chapter: Five"</span>, 
+                                         <span class='st'>"Chapter: Six"</span>, 
+                                         <span class='st'>"Chapter: Seven"</span>, 
+                                         <span class='st'>"Chapter: Eight"</span>, 
+                                         <span class='st'>"Chapter: Nine"</span>, 
+                                         <span class='st'>"Chapter: Ten"</span>, 
+                                         <span class='st'>"Chapter: Eleven"</span>, 
+                                         <span class='st'>"Chapter: Twelve"</span>, 
+                                         <span class='st'>"Chapter: Thirteen"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># To reorder the "chapter" column to reflect proper numerical chronology.</span>
+
+<span class='co'># Graphing the results:</span>
+
+<span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>top_5_words</span>, 
+       <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>word</span>, 
+           y <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_col</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"darkblue"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>chapter</span>, 
+             scales <span class='op'>=</span> <span class='st'>"free"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Top Five Most Frequently Used Words by Chapter"</span>, 
+       x <span class='op'>=</span> <span class='st'>"Top Five Words Used Within a Chapter"</span>, 
+       y <span class='op'>=</span> <span class='st'>"Total Count of a Word Used Within a Chapter"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span>, 
+                                  hjust <span class='op'>=</span> <span class='fl'>0.5</span>, 
+                                  vjust <span class='op'>=</span> <span class='fl'>2.5</span><span class='op'>)</span>, 
+        axis.title.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span>, 
+                                    vjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>, 
+        axis.title.y <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span>, 
+                                    vjust <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="blog4_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
 <p><strong>Figure 4.1.</strong> The total counts of the top five most frequently used words within each of the fourteen chapters of <em>All the Light We Cannot See</em> - a historical fiction novel narrating a story of dystopian fate across Occupied France, during the climax of World War II in Western Europe. Character names were most frequently used - Werner and Marie were the two main characters for the story of fate <em>(Source: Doerr 2014)</em>.</p>
 <p><strong>II.</strong></p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Using the “NRC” lexicon to perform a sentiment analysis for each chapter:</span>
+
+<span class='va'>atlwcs_nrc</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_nonstop_words</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>inner_join</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/tidytext/man/get_sentiments.html'>get_sentiments</a></span><span class='op'>(</span><span class='st'>"nrc"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># To associate words with sentiments via "NRC" lexicon.</span>
+
+<span class='va'>atlwcs_nrc_counts</span> <span class='op'>&lt;-</span> <span class='va'>atlwcs_nrc</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>chapter</span>, 
+        <span class='va'>sentiment</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># To count words by chapter and their associated sentiment.</span>
+  <span class='fu'>rename</span><span class='op'>(</span>count <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='co'># To rename the new column detailing the associated sentiment counts per chapter, to "count".</span>
+
+<span class='va'>atlwcs_nrc_counts</span><span class='op'>$</span><span class='va'>chapter</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>atlwcs_nrc_counts</span><span class='op'>$</span><span class='va'>chapter</span>, 
+                                    levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Chapter: Zero"</span>, 
+                                               <span class='st'>"Chapter: One"</span>, 
+                                               <span class='st'>"Chapter: Two"</span>, 
+                                               <span class='st'>"Chapter: Three"</span>, 
+                                               <span class='st'>"Chapter: Four"</span>, 
+                                               <span class='st'>"Chapter: Five"</span>, 
+                                               <span class='st'>"Chapter: Six"</span>, 
+                                               <span class='st'>"Chapter: Seven"</span>, 
+                                               <span class='st'>"Chapter: Eight"</span>, 
+                                               <span class='st'>"Chapter: Nine"</span>, 
+                                               <span class='st'>"Chapter: Ten"</span>, 
+                                               <span class='st'>"Chapter: Eleven"</span>, 
+                                               <span class='st'>"Chapter: Twelve"</span>, 
+                                               <span class='st'>"Chapter: Thirteen"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># To reorder the "chapter" column to reflect proper numerical chronology, again.</span>
+
+<span class='co'># Graphing the results for the “NRC” lexicon sentiment analysis:</span>
+
+<span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>atlwcs_nrc_counts</span>, 
+       <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>sentiment</span>, 
+           y <span class='op'>=</span> <span class='va'>count</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_col</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"darkblue"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>chapter</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Sentiment Analysis: Word Use Associations to Ten Emotions"</span>, 
+       x <span class='op'>=</span> <span class='st'>"Ten Association Words for Sentiment"</span>, 
+       y <span class='op'>=</span> <span class='st'>"Total Count of Each Sentiment Within Each Chapter"</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_linedraw</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span>, 
+                                  hjust <span class='op'>=</span> <span class='fl'>0.5</span>, 
+                                  vjust <span class='op'>=</span> <span class='fl'>2.5</span><span class='op'>)</span>, 
+        axis.title.x <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span>, 
+                                    vjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>, 
+        axis.title.y <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span>, 
+                                    vjust <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>expand_limits</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, 
+                      <span class='fl'>11</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># To make the bars not hug the sides of the graphs too closely.</span>
+</code></pre>
+</div>
 <p><img src="blog4_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <p><strong>Figure 4.2.</strong> The results of a sentiment analysis on the text for each of the fourteen chapters within <em>All the Light We Cannot See</em>. The words used within each chapter were associated with ten common emotions, denoting negative or positive sentiments for used words <em>(Source: Doerr 2014)</em>.</p>

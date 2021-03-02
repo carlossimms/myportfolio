@@ -1,11 +1,17 @@
 ---
 title: " "
-listing: _posts
+listing: posts
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      warning = FALSE, 
+# Data Project Example 1: Exploratory Data Report
+
+**Project Description**
+
+*The Bonanza Creek Experimental Forest LTER is part of the United States Long-Term Ecological Research Network. To see more information about the site, click [here](https://www.lter.uaf.edu/). In this data report, the counts and sizes of juvenile snowshoe hares recorded from 1998 to 2012, are explored. An introduction, a description of the data and analysis, findings in four parts, and a summary are provided. To access an .html file with only project code, click [here](exploratory_data_report.html).*
+
+```{r setup, include=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
                       message = FALSE)
 
 # Attaching relevant packages:
@@ -19,12 +25,6 @@ library(kableExtra) # Zhu 2021
 library(effsize) # Torchiano 2020
 library(ggpubr) # Kassambara 2020
 ```
-
-# Data Project Example 1: Exploratory Data Report
-
-**Project Description**
-
-*The Bonanza Creek Experimental Forest LTER is part of the United States Long-Term Ecological Research Network. To see more information about the site, click [here](https://www.lter.uaf.edu/). In this data report, the counts and sizes of juvenile snowshoe hares recorded from 1998 to 2012, are explored. An introduction, a description of the data and analysis, findings in four parts, and a summary are provided. To access an .html file with project code, click [here](exploratory_data_report.html).*
 
 **Introduction**
 
@@ -139,7 +139,7 @@ kbl(juv_hare_summary_2) %>%
                 "hover")
 ```
 
-```{r, include=FALSE}
+```{r}
 juv_hare_f <- bonanza_hares %>% 
   filter(sex == "f") %>% 
   pull(weight)
@@ -151,13 +151,13 @@ juv_hare_m <- bonanza_hares %>%
 juv_hare_ttest <- t.test(juv_hare_f, 
                          juv_hare_m)
 
-juv_hare_ttest
+# juv_hare_ttest
 
 juv_hare_cd <- cohen.d(juv_hare_f, 
                        juv_hare_m, 
                        na.rm = TRUE)
 
-juv_hare_cd
+# juv_hare_cd
 ```
 
 In reference to **Table 1.1**, a two-sample t-test and a Cohen's *d* are calculated to derive a holistic view of the difference in weights between male and female juvenile hares within the three BCEF sites. The actual difference in weight means between the sexes is 90.5 grams. With a p-value of 0.007, there is a 0.7% probability that the two sample means were of the same population; meaning, there was more evidence of a significant difference between population means and they were likely drawn from "different" populations. Cohen's *d* is calculated at -0.29, demonstrating a narrow margin of standard deviation where distributed observations tend to be closer to the sample mean.
@@ -186,11 +186,11 @@ ggplot(data = bonanza_hares,
 
 **Figure 1.3.** The relationship between juvenile hare hind foot length and weight, regardless of sex, across the three BCEF, long-term ecological research sites, between 1998 and 2012 *(Source: Kielland et al. 2017)*.
 
-```{r, include=FALSE}
+```{r}
 juv_hare_cor <- cor.test(bonanza_hares$hindft, 
                          bonanza_hares$weight)
 
-juv_hare_cor
+# juv_hare_cor
 ```
 
 With a calculated Pearson's *r* of 0.55, **Figure 1.3** shows that there is a moderate, positive relationship between hind foot length and weight for all juvenile hares, across all BCEF sites. The relationship has a slope of 9.5, denoting that for every one mm increase in hind foot length, there is an additional 9.5 gram increase in weight. Worring though, are the outliers in **Figure 1.3** that are skewing the linear regression. There seems to be a greater amount of trapped hare observations randomly dispersed on the right of the graph, versus the lesser amount that are concentrated around the projected regression line on the left of the graph. Since the data wasn't recorded in a consistent manner between 1998 and 2012, an assumption can be provided that if there was more consistent trapping of juvenile hares, there would otherwise be a more recognizable relationship.

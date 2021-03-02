@@ -1,5 +1,6 @@
 ---
 title: "Carlos Simms"
+subtitle: "csimms@ucsb.edu"
 image: "Simms_Professional_Photo_2.jpg"
 color1: "#5A59A3"
 color2: "#C66060"
@@ -14,7 +15,7 @@ links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/carlossimms15/"
   - label: Email
-    url: "csimms@ucsb.edu"
+    url: "https://mail.google.com/mail/?view=cm&fs=1&to=csimms@ucsb.edu"
 site: distill::distill_website
 output: postcards::trestles
 ---

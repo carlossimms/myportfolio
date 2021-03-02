@@ -1,10 +1,16 @@
 ---
 title: " "
-listing: _posts
+listing: posts
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
+# Data Project Example 2: Visualizing Spatial Data
+
+**Project Description**
+
+*The California Department of Fish and Game (DFG) oil spill incident tracking database system provides quantified statistical data on oil spill incident response via the Office of Spill Prevention and Response (OSPR). An incident is defined as any discharge or threatened discharge of petroleum or other deleterious material into the waters of the state. In this simple data project, 2008 California oil spill spatial data is explored and visualized via an interactive tmap and a static chloropleth map. The maps show the exact locations of all recorded 2008 oil spill events in California and those occurring inland by county. To see more information about the data, click [here](https://map.dfg.ca.gov/metadata/ds0394.html). To access an .html file with only project code, click [here](visualizing_spatial_data.html).*
+
+```{r setup, include=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
                       message = FALSE)
 
@@ -18,12 +24,6 @@ library(tmap) # Tennekes 2018
 library(gstat) # Pebesma 2004, Gräler et al. 2016
 library(stars) # Pebesma 2021
 ```
-
-# Data Project Example 2: Visualizing Spatial Data
-
-**Project Description**
-
-*The California Department of Fish and Game (DFG) oil spill incident tracking database system provides quantified statistical data on oil spill incident response via the Office of Spill Prevention and Response (OSPR). An incident is defined as any discharge or threatened discharge of petroleum or other deleterious material into the waters of the state. In this simple data project, 2008 California oil spill spatial data is explored and visualized via an interactive tmap and a static chloropleth map. The maps show the exact locations of all recorded 2008 oil spill events in California and those occurring inland by county. To see more information about the data, click [here](https://map.dfg.ca.gov/metadata/ds0394.html). To access an .html file with project code, click [here](visualizing_spatial_data.html).*
 
 **I. Locations of 2008 Oil Spill Events in CA**
 

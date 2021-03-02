@@ -1,10 +1,16 @@
 ---
 title: " "
-listing: _posts
+listing: posts
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
+# Data Project Example 4: Text and Sentiment Analysis
+
+**Project Description**
+
+*In this data project, a text and sentiment analysis was performed on Anthony Doerr's 2014 book, "All the Light We Cannot See" - a historical fiction novel narrating a story of dystopian fate across Occupied France between a blind Frenchwoman and a German boy who was forced to fight for the Nazis during the climax of World War II in Western Europe. The text was pulled into a readable format, indexed, tokenized, and divided into chapters to find the top five most used words in each chapter and to perform a sentiment analysis on each chapter via the NRC lexicon. To access an .html file with only project code, click [here](text_sentiment_analysis.html).*
+
+```{r setup, include=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
                       warning = FALSE, 
                       message = FALSE)
 
@@ -16,12 +22,6 @@ library(tidytext) # Silge & Robinson 2016
 library(textdata) # Hvitfeldt 2020
 library(pdftools) # Ooms 2020
 ```
-
-# Data Project Example 4: Text and Sentiment Analysis
-
-**Project Description**
-
-*In this data project, a text and sentiment analysis was performed on Anthony Doerr's 2014 book, "All the Light We Cannot See" - a historical fiction novel narrating a story of dystopian fate across Occupied France between a blind Frenchwoman and a German boy who was forced to fight for the Nazis during the climax of World War II in Western Europe. The text was pulled into a readable format, indexed, tokenized, and divided into chapters to find the top five most used words in each chapter and to perform a sentiment analysis on each chapter via the NRC lexicon. To access an .html file with project code, click [here](text_sentiment_analysis.html).*
 
 ```{r}
 # Reading in the pdf text:
