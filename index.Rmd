@@ -15,7 +15,7 @@ links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/carlossimms15/"
   - label: Email
-    url: "https://mail.google.com/mail/?view=cm&fs=1&to=csimms@ucsb.edu"
+    url: "https://mail.google.com/mail/u/csimms@ucsb.edu/#inbox?compose=new"
 site: distill::distill_website
 output: postcards::trestles
 ---
