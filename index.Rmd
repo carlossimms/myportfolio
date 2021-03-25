@@ -23,7 +23,7 @@ output: postcards::trestles
 
 ## Biography
 
-Carlos Simms is a Mexican-American, first-generation alumnus from the University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at the University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist and/or an energy and climate specialist for corporate America and/or the renewable energy industry.
+Carlos Simms is a Mexican-American, first-generation alumnus from The University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at The University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist or an energy and climate specialist for corporate America and the renewable energy industry.
 
 ## Contact
 

@@ -8,11 +8,15 @@ title: "Resume and Curriculum Vitae"
 
 ## [Curriculum Vitae](Simms_CV.pdf)
 
+## Assigned Master's Project
+
+- [**Floating Solar in Santa Barbara: A Case Study in Municipal Applications of Floating Photovoltaic Systems (Project Proposal)**](Floating_Solar_in_Santa_Barbara.pdf) - Parenteau 2021
+
 ## Writing Samples
 
-- [**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis**](Simms_UofI_Undergraduate_Thesis.pdf) - Simms, C. 2020
+- [**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis**](Simms_UofI_Undergraduate_Thesis.pdf) - Simms 2020
 
-- [**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement**](Simms_UofI_Undergraduate_Issue_Brief.pdf) - Simms, C. 2020
+- [**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement**](Simms_UofI_Undergraduate_Issue_Brief.pdf) - Simms 2020
 
 ## Courses Taken to Date
 
@@ -22,10 +26,14 @@ title: "Resume and Curriculum Vitae"
 - ESM 201: Ecological Principals
 - ESM 202: Environmental Biogeochemistry
 - ESM 203: Earth System Science
+- ESM 204: Economics of Environmental Management
 - ESM 206: Data Analysis and Statistics
+- ESM 207: Environmental Law and Policy
 - ESM 210: Business and the Environment
 - ESM 241: Environmental Politics and Policy
 - ESM 244: Advanced Data Analysis
-- ESM 256A: Eco-Entrepreneurship
+- ESM 256: Eco-Entrepreneurship
+- ESM 261: Management of Scientific Data
+- ESM 401: Group Project (Master's Project)
 
 ^*webpage contains ip @ 2021 Carlos Simms*^
