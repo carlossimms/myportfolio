@@ -1,0 +1,211 @@
+---
+title: "Data Project Example 4"
+---
+
+# Text and Sentiment Analysis
+
+**Project Description**
+
+*In this data project, a text and sentiment analysis was performed on Anthony Doerr's 2014 book, "All the Light We Cannot See" - a historical fiction novel narrating a story of dystopian fate across Occupied France between a blind Frenchwoman and a German boy who was forced to fight for the Nazis during the climax of World War II in Western Europe. The text was pulled into a readable format, indexed, tokenized, and divided into chapters to find the top five most used words in each chapter and to perform a sentiment analysis on each chapter via the NRC lexicon. To access an .html file with only project code, click [here](text_sentiment_analysis.html).*
+
+```{r setup, include=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE)
+
+# Attaching relevant packages:
+
+library(tidyverse) # Wickham et al. 2019
+library(here) # Müller 2020
+library(tidytext) # Silge & Robinson 2016
+library(textdata) # Hvitfeldt 2020
+library(pdftools) # Ooms 2020
+```
+
+**I.**
+
+```{r}
+# Reading in the pdf text:
+
+atlwcs_text <- pdf_text(here("text", 
+                             "all_the_light_we_cannot_see_text.pdf"))
+
+# Wrangling and converting the pdf text into tidy format:
+
+atlwcs_tidy <- data.frame(atlwcs_text) %>% # To create a data frame of the entire pdf text.
+  mutate(text_full = str_split(atlwcs_text, 
+                               pattern = "\\n")) %>% # To have each line of text be its own row in the data frame.
+  unnest(text_full) %>% # To avoid the rows from being read as vectors.
+  mutate(text_full = str_trim(text_full)) # To remove excess whitespace within rows.
+
+# Preparing a data frame for indexing:
+
+atlwcs_indexed <- atlwcs_tidy %>% 
+  slice(-(1:250)) %>% # To slice out all the rows that come before the very first row of the beginning chapter of the pdf text.
+  slice(-(9817:10091)) %>% # To slice out all the rows that come after the very last row of the ending chapter of the pdf text.
+  mutate(chapter = NA_character_) # To add a "chapter" column full of only "NA" values (this was for indexing, because there was no universal wording to use 'stringr' on).
+
+# Indexing:
+  
+atlwcs_indexed[1,3] <- "Chapter: Zero"
+atlwcs_indexed[241,3] <- "Chapter: One"
+atlwcs_indexed[1740,3] <- "Chapter: Two"
+atlwcs_indexed[1902,3] <- "Chapter: Three"
+atlwcs_indexed[3859,3] <- "Chapter: Four"
+atlwcs_indexed[4099,3] <- "Chapter: Five"
+atlwcs_indexed[5716,3] <- "Chapter: Six"
+atlwcs_indexed[5917,3] <- "Chapter: Seven"
+atlwcs_indexed[7016,3] <- "Chapter: Eight"
+atlwcs_indexed[7365,3] <- "Chapter: Nine"
+atlwcs_indexed[8164,3] <- "Chapter: Ten"
+atlwcs_indexed[8975,3] <- "Chapter: Eleven"
+atlwcs_indexed[9138,3] <- "Chapter: Twelve"
+atlwcs_indexed[9735,3] <- "Chapter: Thirteen"
+
+# Filling all "NA" values in the "chapter" column to their appropriate chapter value:
+
+atlwcs_df <- atlwcs_indexed %>% 
+  mutate(chapter = case_when(str_detect(chapter, 
+                                        pattern = "Chapter") ~ chapter, 
+                             TRUE ~ NA_character_)) %>% 
+  fill(chapter)
+
+# Making tokens:
+
+atlwcs_tokens <- atlwcs_df %>% 
+  unnest_tokens(word, 
+                text_full) %>% # To disassociate the words found within each row of the "text_full" column as their independent value (token), under a new "word" column.
+  dplyr::select(-atlwcs_text) # To exclude the "atlwcs_text" column.
+
+# Removing all "stop_words" that exist within the "atlwcs_tokens" data frame:
+
+atlwcs_nonstop_words <- atlwcs_tokens %>% 
+  anti_join(stop_words) # To indicate the type of words to not keep within the text data frame.
+
+# Counting the words used within each chapter of the pdf text:
+
+nonstop_counts <- atlwcs_nonstop_words %>% 
+  count(chapter, 
+        word) %>% # To count the number of times the disassociated words were used within each chapter of the pdf text.
+  rename(count = n) # To rename the new column detailing the word counts per chapter to "count".
+```
+
+```{r, fig.height=5.5, fig.width=9}
+# Searching for the top five most used words in each chapter:
+
+top_5_words <- nonstop_counts %>% 
+  group_by(chapter) %>% # To group counts by chapter.
+  arrange(-count) %>% # To arrange by the highest counts.
+  slice(1:5) # To only include the top five.
+
+top_5_words$chapter <- factor(top_5_words$chapter, 
+                              levels = c("Chapter: Zero", 
+                                         "Chapter: One", 
+                                         "Chapter: Two", 
+                                         "Chapter: Three", 
+                                         "Chapter: Four", 
+                                         "Chapter: Five", 
+                                         "Chapter: Six", 
+                                         "Chapter: Seven", 
+                                         "Chapter: Eight", 
+                                         "Chapter: Nine", 
+                                         "Chapter: Ten", 
+                                         "Chapter: Eleven", 
+                                         "Chapter: Twelve", 
+                                         "Chapter: Thirteen")) # To reorder the "chapter" column to reflect proper numerical chronology.
+
+# Graphing the results:
+
+ggplot(data = top_5_words, 
+       aes(x = word, 
+           y = count)) + 
+  geom_col(fill = "darkblue") + 
+  facet_wrap(~chapter, 
+             scales = "free") + 
+  coord_flip() + 
+  labs(title = "Top Five Most Frequently Used Words by Chapter", 
+       x = "Top Five Words Used Within a Chapter", 
+       y = "Total Count of a Word Used Within a Chapter") + 
+  theme_linedraw() + 
+  theme(plot.title = element_text(face = "bold", 
+                                  hjust = 0.5, 
+                                  vjust = 2.5), 
+        axis.title.x = element_text(face = "bold", 
+                                    vjust = -1), 
+        axis.title.y = element_text(face = "bold", 
+                                    vjust = 2))
+```
+
+**Figure 4.1.** The total counts of the top five most frequently used words within each of the fourteen chapters of *All the Light We Cannot See* - a historical fiction novel narrating a story of dystopian fate across Occupied France, during the climax of World War II in Western Europe. Character names were most frequently used - Werner and Marie were the two main characters for the story of fate *(Source: Doerr 2014)*.
+
+**II.**
+
+```{r, fig.height=8.5, fig.width=9}
+# Using the “NRC” lexicon to perform a sentiment analysis for each chapter:
+
+atlwcs_nrc <- atlwcs_nonstop_words %>% 
+  inner_join(get_sentiments("nrc")) # To associate words with sentiments via "NRC" lexicon.
+
+atlwcs_nrc_counts <- atlwcs_nrc %>% 
+  count(chapter, 
+        sentiment) %>% # To count words by chapter and their associated sentiment.
+  rename(count = n) # To rename the new column detailing the associated sentiment counts per chapter, to "count".
+
+atlwcs_nrc_counts$chapter <- factor(atlwcs_nrc_counts$chapter, 
+                                    levels = c("Chapter: Zero", 
+                                               "Chapter: One", 
+                                               "Chapter: Two", 
+                                               "Chapter: Three", 
+                                               "Chapter: Four", 
+                                               "Chapter: Five", 
+                                               "Chapter: Six", 
+                                               "Chapter: Seven", 
+                                               "Chapter: Eight", 
+                                               "Chapter: Nine", 
+                                               "Chapter: Ten", 
+                                               "Chapter: Eleven", 
+                                               "Chapter: Twelve", 
+                                               "Chapter: Thirteen")) # To reorder the "chapter" column to reflect proper numerical chronology, again.
+
+# Graphing the results for the “NRC” lexicon sentiment analysis:
+
+ggplot(data = atlwcs_nrc_counts, 
+       aes(x = sentiment, 
+           y = count)) + 
+  geom_col(fill = "darkblue") + 
+  facet_wrap(~chapter) + 
+  coord_flip() + 
+  labs(title = "Sentiment Analysis: Word Use Associations to Ten Emotions", 
+       x = "Ten Association Words for Sentiment", 
+       y = "Total Count of Each Sentiment Within Each Chapter") + 
+  theme_linedraw() + 
+  theme(plot.title = element_text(face = "bold", 
+                                  hjust = 0.5, 
+                                  vjust = 2.5), 
+        axis.title.x = element_text(face = "bold", 
+                                    vjust = -1), 
+        axis.title.y = element_text(face = "bold", 
+                                    vjust = 2)) + 
+  expand_limits(x = c(0, 
+                      11)) # To make the bars not hug the sides of the graphs too closely.
+```
+
+**Figure 4.2.** The results of a sentiment analysis on the text for each of the fourteen chapters within *All the Light We Cannot See*. The words used within each chapter were associated with ten common emotions, denoting negative or positive sentiments for used words *(Source: Doerr 2014)*.
+
+**Citations**
+
+Doerr, A. (2014). *All the light we cannot see*. Fourth Estate, HarperCollins Publishers LLC, London, UK.
+
+Hvitfeldt, E. (2020). textdata: Download and load various text datasets [R package].
+
+Müller, K. (2020). here: A simpler way to find your files [R package].
+
+Ooms, J. (2020). pdftools: Text extraction, rendering and converting of PDF documents [R package].
+
+RStudio Team. (2021). *RStudio: Integrated development environment for R* (Version 4.0.3) [Computer software]. RStudio PBC, Boston, USA.
+
+Silge, J., & Robinson, D. (2016). tidytext: Text mining and analysis using tidy data principles in R [R package]. *JOSS*, *1*(3).
+
+Wickham *et al.* (2019). Welcome to the tidyverse [R package]. *Journal of Open Source Software*, *4*(43), 1686.
+
+^*webpage contains ip @ 2021 Carlos Simms*^
