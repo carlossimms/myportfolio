@@ -1,22 +1,22 @@
 ---
-title: "Resume and Curriculum Vitae"
+title: "Curriculum Vitae"
 ---
 
 <img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="400" height="540"/> ^*(Official image. Left to right: Eric Means, Carlos Simms, Idaho Senator James Risch, Lindsay Sonderhouse, Benjamin Gage, and Paul Hancock. Russell Senate Office, Washington, DC, USA. February 4, 2020)*^
 
-## [Resume](Simms_Resume.pdf)
+## Curriculum Vitae
 
-## [Curriculum Vitae](Simms_CV.pdf)
+- [Link](Simms_CV.pdf)
 
-## Assigned Master's Project
+## Master's Project
 
-- **Floating Solar in Santa Barbara: A Case Study in Municipal Applications of Floating Photovoltaic Systems** - *[Link to original project proposal (Schimmelfing & Shaphran 2021)](Floating_Solar_in_Santa_Barbara.pdf)*
+- **Floating Solar in Santa Barbara: A Case Study in Municipal Applications of Floating Photovoltaic Systems**
 
 ## Writing Samples
 
-- [**The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis**](Simms_UofI_Undergraduate_Thesis.pdf) - *Simms 2020*
+- **The Contemporary Precedence of Building-Applied Photovoltaic Systems: A Multileveled Review to Derive a Holistic Cost-Benefit Analysis** [Link](Simms_UofI_Undergraduate_Thesis.pdf)
 
-- [**The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement**](Simms_UofI_Undergraduate_Issue_Brief.pdf) - *Simms 2020*
+- **The African Union’s Adaptability and Resiliency to Climate Change and Associated Population Displacement** [Link](Simms_UofI_Undergraduate_Issue_Brief.pdf)
 
 ## Courses Taken to Date
 
