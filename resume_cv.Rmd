@@ -2,8 +2,6 @@
 title: "Curriculum Vitae"
 ---
 
-<img style="float: left; padding: 0px 10px 0px 0px;" src="lobbying_capitol_hill_image.jpg" width="400" height="540"/> ^*(Official image. Left to right: Eric Means, Carlos Simms, Idaho Senator James Risch, Lindsay Sonderhouse, Benjamin Gage, and Paul Hancock. Russell Senate Office, Washington, DC, USA. February 4, 2020)*^
-
 ## Curriculum Vitae
 
 - [Link](Simms_CV.pdf)
