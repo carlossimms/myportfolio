@@ -1,14 +1,12 @@
 ---
 title: "Carlos Simms"
-image: "Simms_Professional_Photo_2.jpg"
+image: "simms_professional_photo.jpg"
 color1: "#5A59A3"
 color2: "#C66060"
 angle: 160
 links:
   - label: BrenConnect
     url: "https://brenconnect.force.com/s/profile/0053s000003kX1S"
-  - label: GitHub
-    url: "https://github.com/carlossimms"
   - label: Handshake
     url: "https://ucsb.joinhandshake.com/users/24142606"
   - label: LinkedIn
@@ -17,20 +15,16 @@ site: distill::distill_website
 output: postcards::trestles
 ---
 
-<img style="float: center; padding: 0px 10px 0px 0px;" src="campus_beach_image.jpg" width="700" height="300"/>
-
-^*(Simms 2020. "Campus Beach". Isla Vista, CA, USA.)*^
+<img style="float: center; padding: 0px 10px 0px 0px;" src="santa_barbara_background_photo.jpg" width="625" height="250"/>
 
 ## Biography
 
-Carlos Simms is a Mexican-American, first-generation alumnus from The University of Idaho. He was a Ronald E. McNair Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an academic certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at The University of California at Santa Barbara, emphasizing his studies in energy and climate. Carlos aspires to one day be a data scientist or an energy and climate specialist for corporate America and the renewable energy industry.
+Carlos Simms is a Mexican-American, first-generation alumnus from The University of Idaho. He was a Ronald E. McNair Achievement Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an Academic Certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at The University of California Santa Barbara, specializing his studies in energy and climate. Carlos aspires to one day work for the public sector in energy and climate work, notably paving the way for a future that considers renewable energy, climate responsibility, and Global South equity.
 
 ## Contact
 
 ###### Carlos M. Simms
-###### Masters Candidate
+###### Master's Student
 ###### University of California Santa Barbara
-###### Bren School of Environmental Science & Management
+###### Bren School of Environmental Science and Management
 ###### csimms@ucsb.edu
-
-^*webpage contains ip @ 2021 Carlos Simms*^
