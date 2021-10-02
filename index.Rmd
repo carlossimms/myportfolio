@@ -5,10 +5,6 @@ color1: "#5A59A3"
 color2: "#C66060"
 angle: 160
 links:
-  - label: BrenConnect
-    url: "https://brenconnect.force.com/s/profile/0053s000003kX1S"
-  - label: Handshake
-    url: "https://ucsb.joinhandshake.com/users/24142606"
   - label: LinkedIn
     url: "https://www.linkedin.com/in/carlossimms15/"
 site: distill::distill_website
@@ -19,7 +15,7 @@ output: postcards::trestles
 
 ## Biography
 
-Carlos Simms is a Mexican-American, first-generation alumnus from The University of Idaho. He was a Ronald E. McNair Achievement Scholar and graduated in December of 2019. His academic accreditation from the institution included a Bachelor of Science in Environmental Social Science and an Academic Certificate in Climate Change. Carlos is now pursuing a Master of Science in Environmental Science and Management at The University of California Santa Barbara, specializing his studies in energy and climate. Carlos aspires to one day work for the public sector in energy and climate work, notably paving the way for a future that considers renewable energy, climate responsibility, and Global South equity.
+First-generation alumnus from The University of Idaho and an ex-Ronald E. McNair Achievement scholar. Academic accreditation includes a Bachelor of Science in Environmental Science and an Academic Certificate in Climate Change. Pursuing a Master of Science in Environmental Science and Management at The University of California Santa Barbara; Specializing in energy and climate studies. Aspire to work in the public sector in energy and climate work, notably paving the way for a future that considers renewable energy, climate responsibility, and Global South equity.
 
 ## Contact
 
@@ -28,3 +24,4 @@ Carlos Simms is a Mexican-American, first-generation alumnus from The University
 ###### University of California Santa Barbara
 ###### Bren School of Environmental Science and Management
 ###### csimms@ucsb.edu
+###### carlossimms15@gmail.com
