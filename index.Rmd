@@ -19,6 +19,6 @@ output: postcards::trestles
 
 First-generation alumnus from The University of Idaho and a former Ronald E. McNair Achievement scholar. Academic accreditation includes a Bachelor of Science in Environmental Science and an Academic Certificate in Climate Change. Pursuing a Master of Science in Environmental Science and Management at The University of California Santa Barbara; specializing in energy and climate studies. Aspire to work with solar energy; holistically aspiring for an opportunity that paves the way for a future with renewable energy, climate responsibility, and Global South equity.
 
-## Contact
+## Contact Information
 
-<img style="float: center; padding: 0px 10px 0px 0px;" src="simms_personal_info.jpg" width="300" height="110"/>
+<img style="float: center; padding: 0px 0px 0px 0px;" src="simms_personal_info.jpg" width="550" height="110"/>
