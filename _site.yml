@@ -8,6 +8,8 @@ navbar:
   right:
     - text: "Biography"
       href: index.html
-    - text: "Documents"
-      href: documents.html
+    - text: "Research Projects"
+      href: research.html
+    - text: "Official Records"
+      href: records.html
 output: distill::distill_article

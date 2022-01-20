@@ -6,9 +6,7 @@ color2: "#C66060"
 angle: 160
 links:
   - label: LinkedIn
-    url: "https://www.linkedin.com/in/carlossimms15/"
-  - label: Handshake
-    url: "https://ucsb.joinhandshake.com/users/24142606"
+    url: "https://www.linkedin.com/in/carlossimms/"
 site: distill::distill_website
 output: postcards::trestles
 ---
@@ -17,8 +15,8 @@ output: postcards::trestles
 
 ## Biography
 
-First-generation alumnus from The University of Idaho and a former Ronald E. McNair Achievement scholar. Academic accreditation includes a Bachelor of Science in Environmental Science and an Academic Certificate in Climate Change. Pursuing a Master of Science in Environmental Science and Management at The University of California Santa Barbara; specializing in energy and climate studies. Aspire to work with solar energy; holistically aspiring for an opportunity that paves the way for a future with renewable energy, climate responsibility, and Global South equity.
+Former McNair Achievement Scholar at the University of Idaho. Current Environmental Science & Management Graduate Fellow at the University of California, Santa Barbara. Aspiring to work in solar energy markets and on electric vehicle charging infrastructure projects. Searching for an opportunity that paves the way for a future with renewable energy, climate responsibility, and environmental equity.
 
 ## Contact Information
 
-<img style="float: center; padding: 0px 0px 0px 0px;" src="simms_personal_info.jpg" width="550" height="110"/>
+<img style="float: center; padding: 0px 0px 0px 0px;" src="simms_personal_info.jpg" width="450" height="100"/>
